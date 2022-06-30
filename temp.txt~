@@ -1,0 +1,18 @@
+DEFAULT_SCRIPT_DIR = '/etc/networkd-dispatcher:/usr/lib/networkd-dispatcher'
+
+user01@attacker-vm:~/Programming/python$ ls /etc/networkd-dispatcher/
+carrier.d  degraded.d  dormant.d  no-carrier.d  off.d  routable.d
+
+
+_receive_signal:
+operational_state = data.get('OperationalState', None)
+        administrative_state = data.get('AdministrativeState', None)
+
+        if ((operational_state is not None) or
+                (administrative_state is not None)):
+            try:
+                self.handle_state(iface_name,
+                                  administrative_state=str(administrative_state)  # noqa
+                                  if administrative_state else None,
+                                  operational_state=str(operational_state)
+                                  if operational_state else None,)

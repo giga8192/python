@@ -1,0 +1,24 @@
+○暗号化モード
+・ECB
+ECBモード(Electronic CodeBook mode: 電子符号表モード) では、平文ブロックを普通に暗号化する
+
+・CBC
+CBCモード(Cipher Block Chaining: 暗号ブロック連鎖モード) では、
+1つ前の暗号文ブロックと平文ブロックの XOR を取ってから暗号化を行う。
+
+
+
+○AES暗号
+AESでは128・192・256bitの中から鍵長を選んで利用可能です。
+ブロックサイズは一律128ビット
+
+○DES暗号
+Data Encryption Standard
+鍵長が56bit(64ビットのうち、8ビット分はパリティ)
+
+
+
+○RC4
+Rivest’s Cipher ４」の略で、
+RC４は現在ではわずか数時間程度で破られることが判明
+RC４は鍵長を40～2048bitの間で自由に設定できます

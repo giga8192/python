@@ -1,0 +1,6 @@
+・ECB
+ECBモード(Electronic CodeBook mode: 電子符号表モード) では、平文ブロックを普通に暗号化する
+
+・CBC
+CBCモード(Cipher Block Chaining: 暗号ブロック連鎖モード) では、
+1つ前の暗号文ブロックと平文ブロックの XOR を取ってから暗号化を行う。

@@ -1,0 +1,40 @@
+DEFAULT_SCRIPT_DIR = '/etc/networkd-dispatcher:/usr/lib/networkd-dispatcher'
+
+user01@attacker-vm:~/Programming/python$ ls /etc/networkd-dispatcher/
+carrier.d  degraded.d  dormant.d  no-carrier.d  off.d  routable.d
+
+
+_receive_signal:
+operational_state = data.get('OperationalState', None)
+        administrative_state = data.get('AdministrativeState', None)
+
+        if ((operational_state is not None) or
+                (administrative_state is not None)):
+            try:
+                self.handle_state(iface_name,
+                                  administrative_state=str(administrative_state)  # noqa
+                                  if administrative_state else None,
+                                  operational_state=str(operational_state)
+                                  if operational_state else None,)
+
+
+def handle_state(self, iface_name, administrative_state=None,
+                     operational_state=None, force=False):
+
+        self._handle_one_state(iface_name, administrative_state,
+                               'administrative', force=force)
+        self._handle_one_state(iface_name, operational_state, 'operational',
+                               force=force)
+
+def _handle_one_state(self, iface_name, state, state_type, force=False):
+
+
+def run_hooks_for_state(self, iface, state):
+    script_list = self.get_scripts_list(state)
+
+    def get_scripts_list(self, state):
+        """Return scripts for the given state"""
+        return scripts_in_path(self.script_dir, state + ".d")
+
+	# self.script_dir = DEFAULT_SCRIPT_DIR
+#	DEFAULT_SCRIPT_DIR = '/etc/networkd-dispatcher:/usr/lib/networkd-dispatcher'
